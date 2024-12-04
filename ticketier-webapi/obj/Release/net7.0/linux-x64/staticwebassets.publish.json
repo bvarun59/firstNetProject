@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Wu246PBlCUJUENSZ4nVc1SPQAN3c2RJRl+EuqmLIiq8=",
+  "Source": "ticketier-webapi",
+  "BasePath": "_content/ticketier-webapi",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
