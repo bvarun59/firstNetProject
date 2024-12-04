@@ -1,13 +1,14 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
+# Use the official Microsoft image for ASP.NET as the base image
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8
+
+# Set the working directory in the container
+WORKDIR /inetpub/wwwroot
+
+# Copy the published files from your local machine to the container
+COPY ./ticketier-webapi/. .
+
+# Expose the default IIS port
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY . .
-RUN dotnet publish -c Release -o /app
-
-FROM base AS final
-WORKDIR /app
-COPY --from=build /app .
-ENTRYPOINT ["dotnet", "ticketier-webapi.dll"]
+# Entry point to start the IIS server
+ENTRYPOINT ["cmd", "/c", "start", "iisreset", "&&", "ping", "-t", "localhost"]
