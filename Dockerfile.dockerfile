@@ -12,3 +12,5 @@ EXPOSE 80
 
 # Entry point to start the IIS server
 ENTRYPOINT ["cmd", "/c", "start", "iisreset", "&&", "ping", "-t", "localhost"]
+
+# end of docker file
